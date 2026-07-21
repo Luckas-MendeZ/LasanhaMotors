@@ -1,0 +1,66 @@
+[
+  {
+    "marca": "Volkswagen",
+    "modelo": "Voyage",
+    "cor": "Branco",
+    "ano": 1988,
+    "preco": 15000,
+    "id": 1
+  },
+  {
+    "marca": "Honda",
+    "modelo": "Civic",
+    "cor": "Preto",
+    "ano": 2008,
+    "preco": 42000,
+    "id": 2
+  },
+  {
+    "marca": "Fiat",
+    "modelo": "Marea",
+    "cor": "Vermelho",
+    "ano": 1995,
+    "preco": 22000,
+    "id": 4
+  },
+  {
+    "marca": "Volkswagen",
+    "modelo": "Gol",
+    "cor": "Branco",
+    "ano": 1995,
+    "preco": 15000,
+    "id": 5
+  },
+  {
+    "marca": "Toyota",
+    "modelo": "Corolla",
+    "cor": "Preto",
+    "ano": 2022,
+    "preco": 112000,
+    "id": 6
+  },
+  {
+    "marca": "Mazda",
+    "modelo": "Miata",
+    "cor": "Vermelho",
+    "ano": 1999,
+    "preco": 16000,
+    "id": 7
+  },
+  {
+    "marca": "KIA",
+    "modelo": "Cerato",
+    "cor": "Preto",
+    "ano": 2008,
+    "preco": 22000,
+    "id": 8
+  },
+  {
+    "marca": "Chevrolet",
+    "modelo": "Astra",
+    "cor": "Preto",
+    "ano": 2004,
+    "preco": 18000,
+    "id": 9
+  }
+]

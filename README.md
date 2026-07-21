@@ -92,10 +92,10 @@ Ele foi criado exclusivamente para:
 
 ## Como executar
 
-"```bash"
-npm install
-node server.js
-http://localhost:3000
+* ```bash
+* npm install
+* node server.js
+* http://localhost:3000
 
 ---
 

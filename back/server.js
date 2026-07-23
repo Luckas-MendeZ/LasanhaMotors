@@ -8,6 +8,7 @@ const port = 3000;
 const fs = require('fs');
 const path = require('path');
 const filePath = path.join(__dirname, '../database/cars.json');
+const usersFilePath = path.join(__dirname, '../database/users.json');
 
 
 app.get("/cars", (req, res) => {

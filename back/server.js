@@ -113,3 +113,41 @@ app.put("/cars/:id", (req, res) => {
 app.listen(port, () => {
     console.log("Servidor rodando na porta " + port);
 });
+
+/* AREA DOS USUARIOS */
+
+app.post("/register", (req, res) => {
+    fs.readFile(usersFilePath, "utf-8", (err, data) => {
+        if (err) {
+            return res.status(500).json({ erro: "Erro ao ler arquivo" });
+        }
+        const users = JSON.parse(data);
+        const newUser = req.body;
+        if (!newUser.name || !newUser.email || !newUser.password) {
+            return res.status(400).json({ erro: "Todos os campos são obrigatórios" });
+        }
+        if (users.some(user => user.email === newUser.email)) {
+            return res.status(400).json({ erro: "E-mail já cadastrado" });
+        }
+        const lastId = users.length > 0 ? users[users.length - 1].id : 0;
+        newUser.id = lastId + 1;
+        users.push(newUser);
+
+        fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), (err) => {
+            if (err) {
+                return res.status(500).json({ erro: "Erro ao escrever arquivo" });
+            }
+            res.status(201).json({ mensagem: "Usuário cadastrado com sucesso"});
+        });
+    });
+});
+
+app.get("/users", (req, res) => {
+    fs.readFile(usersFilePath, "utf-8", (err, data) => {
+        if (err) {
+            return res.status(500).json({ erro: "Erro ao ler arquivo" });
+        }
+        const users = JSON.parse(data);
+        res.json(users);
+    })
+});

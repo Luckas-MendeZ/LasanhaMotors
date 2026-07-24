@@ -117,13 +117,14 @@ app.listen(port, () => {
 /* AREA DOS USUARIOS */
 
 app.post("/register", (req, res) => {
+    
     fs.readFile(usersFilePath, "utf-8", (err, data) => {
         if (err) {
             return res.status(500).json({ erro: "Erro ao ler arquivo" });
         }
         const users = JSON.parse(data);
         const newUser = req.body;
-        if (!newUser.name || !newUser.email || !newUser.password) {
+        if (!newUser.nome || !newUser.email || !newUser.senha) {
             return res.status(400).json({ erro: "Todos os campos são obrigatórios" });
         }
         if (users.some(user => user.email === newUser.email)) {

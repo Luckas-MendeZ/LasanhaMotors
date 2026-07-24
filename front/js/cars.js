@@ -153,4 +153,3 @@ fetch('http://localhost:3000/cars')
         })
         .catch(error => console.error('Erro ao excluir carro:', error));
     }
-

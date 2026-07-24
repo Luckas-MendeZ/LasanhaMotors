@@ -1,8 +1,14 @@
 [
-    {
-        "id": 1,
-        "name": "John Doe",
-        "email": "john@example.com",
-        "password": "password123"
-    }
+  {
+    "nome": "John Doe",
+    "email": "john@example.com",
+    "senha": "password123",
+    "id": 1
+  },
+  {
+    "nome": "Cleitin",
+    "email": "cl31t1n@gmail.com",
+    "senha": "12345",
+    "id": 2
+  }
 ]

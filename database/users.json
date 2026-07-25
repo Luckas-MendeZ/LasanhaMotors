@@ -10,5 +10,11 @@
     "email": "cl31t1n@gmail.com",
     "senha": "12345",
     "id": 2
+  },
+  {
+    "nome": "Alemao",
+    "email": "seizao@gmail.com",
+    "senha": "amoweber",
+    "id": 3
   }
 ]

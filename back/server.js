@@ -152,3 +152,20 @@ app.get("/users", (req, res) => {
         res.json(users);
     })
 });
+
+// LOGIN
+
+app.post("/login", (req, res) => {
+    fs.readFile(usersFilePath, "utf-8", (err, data) => {
+        if (err) {
+            return res.status(500).json({ erro: "Erro ao ler arquivo" });
+        }
+        const users = JSON.parse(data);
+        const { email, senha } = req.body;
+        const user = users.find(u => u.email === email && u.senha === senha);
+        if (!user) {
+            return res.status(401).json({ erro: "E-mail ou senha incorretos" });
+        }
+        res.json({ mensagem: "Login realizado com sucesso", usuario: user });
+    });
+});

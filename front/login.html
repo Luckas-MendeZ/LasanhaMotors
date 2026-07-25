@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Sua Lasanha Aqui - Cadastrar</title>
+    <title>Sua Lasanha Aqui - Login</title>
 </head>
 
 <body>
@@ -13,23 +13,23 @@
     <nav>
         <ul>
             <li><a href="./index.html">Início</a></li>
-            <li><a href="./login.html">Possui conta? Faça login</a></li>
+            <li><a href="./register.html">Usuario novo? Cadastre-se</a></li>
         </ul>
     </nav>
 
-    <h1>Cadastre-se</h1>
+    <h1>Login</h1>
 
     <div id="pageContainer">
-    <form id="cadastroForm" method="post">
-        <input id="nome" placeholder="Nome">
+    <form id="loginForm" method="post">
         <input id="email" placeholder="E-mail">
-        <input id="senha" placeholder="Senha">
-        <button type="submit">Cadastrar</button>
+        <input id="senha" placeholder="Senha" type="password">
+        <button type="submit">Entrar</button>
     </form>
     </div>
+    <p id="errorAlert"></p>
     
 
-    <script src="./js/register.js">
+    <script src="./js/login.js">
     </script>
     
 </body>

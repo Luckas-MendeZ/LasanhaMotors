@@ -153,3 +153,26 @@ fetch('http://localhost:3000/cars')
         })
         .catch(error => console.error('Erro ao excluir carro:', error));
     }
+
+// AREA DO USUARIO
+    
+    const usuario = JSON.parse(localStorage.getItem("userLog"));
+
+    if (usuario) {
+        console.log("Usuário logado:", usuario);
+        document.getElementById("userInfo").innerHTML = `Bem-vindo ${usuario.nome}`;
+    };
+
+    if (usuario) {
+        document.getElementById("login").innerHTML = `<a href="./login.html">Sair</a>`;
+        document.getElementById("register").style.display = "none";
+    };
+
+    function logOut() {
+        localStorage.removeItem("userLog");
+        window.location.href = "./login.html";
+    };
+
+    if(!usuario){ document.getElementById("btnSubmit").disabled = true;
+        document.getElementById("btnSubmit"). textContent = "Você precisa estar logado para anunciar";
+        }

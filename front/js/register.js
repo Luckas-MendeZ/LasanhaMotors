@@ -34,6 +34,7 @@ console.log("Script carregado");
         .then(res => res.json())
         .then(data => {
             console.log("Usuário criado: ", data);
+            window.location.href = "./login.html";
         })
         .catch(error => console.error('Erro ao cadastrar usuário:', error));
     }

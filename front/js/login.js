@@ -28,6 +28,9 @@ console.log("Script carregado");
         }
             document.getElementById("errorAlert").textContent = "";
                     console.log("Login realizado com sucesso:", data);
+
+                    localStorage.setItem("userLog", JSON.stringify(data.usuario));
+                    window.location.href = "./index.html";
         })
         .catch(error => {
             console.error(error);

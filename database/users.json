@@ -16,5 +16,11 @@
     "email": "seizao@gmail.com",
     "senha": "amoweber",
     "id": 3
+  },
+  {
+    "nome": "Lucas",
+    "email": "lucas@gmail.com",
+    "senha": "admin123",
+    "id": 4
   }
 ]

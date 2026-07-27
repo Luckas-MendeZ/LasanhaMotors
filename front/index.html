@@ -11,15 +11,15 @@
 <body>
     <nav>
         <ul>
-            <li><a href="./index.html">Início</a></li>
-            <li><a href="./register.html">Cadastrar</a></li>
-            <li><a href="./login.html">Login</a></li>
+            <li id="home"><a href="./index.html">Início</a></li>
+            <li id="register"><a href="./register.html">Cadastrar</a></li>
+            <li id="login"  onclick="logOut()"><a href="./login.html">Login</a></li>
         </ul>
     </nav>
     
+    <h1 id="userInfo"></h1>
     <h1>Carros à venda</h1>
-    <div id="cars">
-    </div>
+    <div id="cars"></div>
 
     <h1>Publique sua lasanha</h1>
     <button id="btnToggle" onclick="toggleForm()">Adicionar carro</button>
@@ -30,14 +30,13 @@
         <input id="cor" placeholder="Cor">
         <input id="ano" placeholder="Ano">
         <input id="preco" placeholder="Preço">
-        <button type="submit">Publicar</button>
+        <button id="btnSubmit" type="submit">Publicar</button>
     </form>
     </div>
     
 
-    <script src="./js/cars.js">
+    <script src="./js/index.js">
     </script>
     
 </body>
 </html>
-,

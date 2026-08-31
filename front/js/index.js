@@ -3,24 +3,43 @@ console.log("Script carregado");
 let cars = [];
 let editingCarId = null;
 
+
+const newCar = {
+    titulo: document.getElementById('titulo').value,
+    imagem: document.getElementById('imagem').value,
+    preco: Number(document.getElementById('preco').value),
+    descricao: document.getElementById('descricao').value,
+    idDono: JSON.parse(localStorage.getItem("userLog")).id
+};
+console.log(newCar);
+
+fetch('http://localhost:3000/users')
+    .then(response => response.json())
+    .then(users => {
+    console.log("usuários", users)
 fetch('http://localhost:3000/cars')
+    
     .then(response => response.json())
     .then(data => {
         cars = data;
-        const carList = document.getElementById('cars');
-        carList.innerHTML = data.map(car => `
-            <div>
-                <h2>${car.id}</h2>
-                <p>Marca: ${car.marca}</p>
-                <p>Modelo: ${car.modelo}</p>
-                <p>Cor: ${car.cor}</p>
-                <p>Ano: ${car.ano}</p>
-                <p>Preço: R$ ${car.preco.toFixed(2)}</p>
-
-                <button onclick='deleteCar(${car.id})'>Excluir carro</button>
-                <button onclick='editCar(${car.id})'>Editar carro</button>
-            </div>
-        `).join('');})
+        console.log("carros", data)
+            const carList = document.getElementById('cars');
+                carList.innerHTML = data.map(car => {
+                    
+            const vendedor = users.find(user => user.idUser === car.idDono);
+                return `
+                <div>
+                    <p>Titulo: ${car.titulo}</p>
+                    <p>Imagem: ${car.imagem}</p>
+                    <p>Descrição: ${car.descricao}</p>
+                    <p>Preço: R$ ${car.preco.toFixed(2)}</p>
+                    <p>Dono: <a href="profile.html?id=${vendedor.idUser}">${vendedor.nome}</a></p>
+                        <button onclick='deleteCar(${car.id})'>Excluir carro</button>
+                        <button onclick='editCar(${car.id})'>Editar carro</button>
+                    </div>`;
+                }).join('');
+            });
+    })
 
     .catch(error => console.error('Erro ao buscar carros:', error));
 
@@ -35,19 +54,22 @@ fetch('http://localhost:3000/cars')
     });
 
     function submitCar() {
-        const marca = document.getElementById('marca').value;
-        const modelo = document.getElementById('modelo').value;
-        const cor = document.getElementById('cor').value;
-        const ano = document.getElementById('ano').value;
+        const titulo = document.getElementById('titulo').value;
+        const imagem = document.getElementById('imagem').value;
         const preco = document.getElementById('preco').value;
+        const descricao = document.getElementById('descricao').value;
+
+        const usuario = JSON.parse(localStorage.getItem("userLog"));
+        console.log(usuario);
 
         const newCar = {
-            marca,
-            modelo,
-            cor,
-            ano: Number(ano),
-            preco: Number(preco)
+            titulo,
+            imagem,
+            preco: Number(preco),
+            descricao,
+            idDono: usuario.id
         };
+        console.log(newCar);
         
         fetch('http://localhost:3000/cars', {
             method: 'POST',
@@ -98,27 +120,24 @@ fetch('http://localhost:3000/cars')
         const form = document.getElementById("formvendaContainer");
         form.style.display = "block";
         document.getElementById("btnToggle").textContent = "Fechar";
-        document.getElementById("marca").value = car.marca;
-        document.getElementById("modelo").value = car.modelo;
-        document.getElementById("cor").value = car.cor;
-        document.getElementById("ano").value = car.ano;
+        document.getElementById("titulo").value = car.titulo;
+        document.getElementById("imagem").value = car.imagem;
         document.getElementById("preco").value = car.preco;
+        document.getElementById("descricao").value = car.descricao;
 }
 
     // Atualiza um carro existente
     function updateCar(){
 
-        const marca = document.getElementById("marca").value;
-        const modelo = document.getElementById("modelo").value;
-        const cor = document.getElementById("cor").value;
-        const ano = document.getElementById("ano").value;
+        const titulo = document.getElementById("titulo").value;
+        const imagem = document.getElementById("imagem").value;
         const preco = document.getElementById("preco").value;
+        const descricao = document.getElementById("descricao").value;
         const updatedCar = {
-            marca,
-            modelo,
-            cor,
-            ano: Number(ano),
-            preco: Number(preco)
+            titulo,
+            imagem,
+            preco: Number(preco),
+            descricao
         };
 
     fetch(`http://localhost:3000/cars/${editingCarId}`,{

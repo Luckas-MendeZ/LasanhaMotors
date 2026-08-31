@@ -1,26 +1,26 @@
 [
   {
-    "nome": "John Doe",
-    "email": "john@example.com",
-    "senha": "password123",
-    "id": 1
+    "nome": "ADM",
+    "email": "admin@gmail.com",
+    "senha": "admin123",
+    "idUser": 1
   },
   {
     "nome": "Cleitin",
     "email": "cl31t1n@gmail.com",
     "senha": "12345",
-    "id": 2
+    "idUser": 2
   },
   {
     "nome": "Alemao",
     "email": "seizao@gmail.com",
     "senha": "amoweber",
-    "id": 3
+    "idUser": 3
   },
   {
     "nome": "Lucas",
     "email": "lucas@gmail.com",
-    "senha": "admin123",
-    "id": 4
+    "senha": "lucas123",
+    "idUser": 4
   }
 ]

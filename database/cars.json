@@ -1,66 +1,66 @@
 [
   {
-    "marca": "Volkswagen",
-    "modelo": "Voyage",
-    "cor": "Branco",
-    "ano": 1988,
+    "id": 1,
+    "titulo": "Honda Civic 1996",
+    "imagem": "https://imgs.search.brave.com/gv4yoo_vTzl7RalSvXhfiyeYnKf6Gaag3fk1P3hXous/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2UxLzRk/LzViL2UxNGQ1YjRh/ODliZGU5YTk5NjYx/OWI4ZDBhMDMzNTI0/LmpwZw",
+    "preco": 17000,
+    "descricao": "Carro em bom estado, com motor 1.6 e câmbio manual. Ideal para quem busca um veículo confiável e econômico.",
+    "idDono": 1
+  },
+  {
+    "id": 2,
+    "titulo": "Volkswagen Parati quadrada turbo",
+    "imagem": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGyUl3GwkQz-7p0axIw4yvlbLWHtGL3C9Pr0R5_dbOcmYDUgs0c6lEArs&s=10",
     "preco": 15000,
-    "id": 1
+    "descricao": "Parati quadrada rodando com 1,5kg de pressao. lataria, mecanica e interna zerados",
+    "idDono": 1
   },
   {
-    "marca": "Honda",
-    "modelo": "Civic",
-    "cor": "Preto",
-    "ano": 2008,
-    "preco": 42000,
-    "id": 2
-  },
-  {
-    "marca": "Fiat",
-    "modelo": "Marea",
-    "cor": "Vermelho",
-    "ano": 1995,
+    "titulo": "KIA Cerato koup 2008",
+    "imagem": "https://image.webmotors.com.br/_fotos/anunciousados/gigante/2026/202607/20260722/kia-cerato-2.0-koup-16v-gasolina-2p-automatico-wmimagem17161206387.jpg",
     "preco": 22000,
-    "id": 4
+    "descricao": "carro completo e economico",
+    "id": 3,
+    "idDono": 4
   },
   {
-    "marca": "Volkswagen",
-    "modelo": "Gol",
-    "cor": "Branco",
-    "ano": 1995,
-    "preco": 15000,
+    "titulo": "Toyota Corolla 2022",
+    "imagem": "https://imgs.search.brave.com/h3PlcHlpVXsT5mCosmTz1KuAn0QRrsUK9QIPuTrhxMs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2U5LzEw/LzRmL2U5MTA0ZjEz/YjAzOGJiM2JkNDE0/MDQyMWM0NDc1Nzc3/LmpwZw",
+    "preco": 112000,
+    "descricao": "carro de vo",
+    "id": 4,
+    "idDono": 4
+  },
+  {
+    "titulo": "Fusca Drag",
+    "imagem": "https://imgs.search.brave.com/1l15zImIjRgqDkhhK_dF9laM6tfaNAFbEQGyYQlZzxc/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy80/LzQzL1ZXQmVldGxl/SG90Um9kLmpwZw",
+    "preco": 70000,
+    "descricao": "Fusca de arrancada, motor turbo boxter de subaru com 600whp",
+    "idDono": 3,
     "id": 5
   },
   {
-    "marca": "Toyota",
-    "modelo": "Corolla",
-    "cor": "Preto",
-    "ano": 2022,
-    "preco": 112000,
+    "titulo": "Nissan 180SX",
+    "imagem": "https://imgs.search.brave.com/rKbGnfx8qNIuqKqgI9uHqTknr8DktOx7ABqH4vSKgGU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2VjL2Rm/L2MzL2VjZGZjM2Yz/MTYyZmI4M2FhZTQ0/NDYwMDQ5ZTQ0Yjk3/LmpwZw",
+    "preco": 32000,
+    "descricao": "carro com pequenos detalhes a se fazer, coisa boba, chamar somente reais interessados",
+    "idDono": 3,
     "id": 6
   },
   {
-    "marca": "Mazda",
-    "modelo": "Miata",
-    "cor": "Vermelho",
-    "ano": 1999,
-    "preco": 16000,
+    "titulo": "Opala diplomata 1984",
+    "imagem": "https://imgs.search.brave.com/5fB9QaP0Z2w2A1UXi1o4Wj6NVCFwtQPgMnoP77yhWLM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9jZG4t/bWVsb2phLm55YzMu/Y2RuLmRpZ2l0YWxv/Y2VhbnNwYWNlcy5j/b20vc3RvcmVzL3Vw/bG9hZHMvMTc1MTkw/MS9jb252ZXJzaW9u/cy9sYXJnZS5qcGc",
+    "preco": 95000,
+    "descricao": "Opala diplomata 1984, completamente origina e placa preta",
+    "idDono": 3,
     "id": 7
   },
   {
-    "marca": "KIA",
-    "modelo": "Cerato",
-    "cor": "Preto",
-    "ano": 2008,
-    "preco": 28000,
+    "titulo": "Estacao espacial",
+    "imagem": "https://imgs.search.brave.com/trKKckgPVjvzhQVrxoOhN9ryB2nV85jnLNY3kk1BR8Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/Y3JlYXRlLnZpc3Rh/LmNvbS9hcGkvbWVk/aWEvc21hbGwvMjI5/NzY1OTI2L3N0b2Nr/LXBob3RvLWZsaWdo/dC1vZi1pbnRlcm5h/dGlvbmFsLXNwYWNl/LXN0YXRpb24tb24t/dGhlLWJhY2tncm91/bmQtb2YtZWFydGg",
+    "preco": 999999999,
+    "descricao": "estacao completa ja em orbita, pequenos detalhes de uso, doc 2026 atrasado",
+    "idDono": 2,
     "id": 8
-  },
-  {
-    "marca": "Chevrolet",
-    "modelo": "Astra",
-    "cor": "Preto",
-    "ano": 2004,
-    "preco": 18000,
-    "id": 9
   }
 ]

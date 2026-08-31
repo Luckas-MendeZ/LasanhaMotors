@@ -39,6 +39,7 @@ app.get("/cars/:id", (req, res) => {
 });
 
 app.post("/cars", (req, res) => {
+    console.log(req.body);
 
     fs.readFile(filePath, "utf-8", (err, data) => {
         if (err) {
@@ -130,8 +131,8 @@ app.post("/register", (req, res) => {
         if (users.some(user => user.email === newUser.email)) {
             return res.status(400).json({ erro: "E-mail já cadastrado" });
         }
-        const lastId = users.length > 0 ? users[users.length - 1].id : 0;
-        newUser.id = lastId + 1;
+        const lastId = users.length > 0 ? users[users.length - 1].idUser : 0;
+        newUser.idUser = lastId + 1;
         users.push(newUser);
 
         fs.writeFile(usersFilePath, JSON.stringify(users, null, 2), (err) => {
@@ -153,6 +154,24 @@ app.get("/users", (req, res) => {
     })
 });
 
+app.get("/users/:id", (req, res) => {
+    fs.readFile(usersFilePath, "utf-8", (err, data) => {
+        if (err) {
+            return res.status(500).json({ erro: "Erro ao ler arquivo" });
+        }
+        const users = JSON.parse(data);
+        const user = users.find(u => u.idUser === parseInt(req.params.id));
+        if (!user) {
+            return res.status(404).json({ erro: "Usuário não encontrado" });
+        }
+        res.json({
+            id: user.idUser,
+            nome: user.nome,
+            email: user.email
+        });
+    }
+        )});
+
 // LOGIN
 
 app.post("/login", (req, res) => {
@@ -168,7 +187,7 @@ app.post("/login", (req, res) => {
         }
         res.status(200).json({
             mensagem: "Login realizado com sucesso", usuario:{
-            id: user.id,
+            id: user.idUser,
             nome: user.nome,
             email: user.email }
         });

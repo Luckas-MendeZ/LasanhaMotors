@@ -2,31 +2,40 @@ console.log("Script carregado");
 
 let cars = [];
 let editingCarId = null;
+let users = [];
 
+
+const user= JSON.parse(localStorage.getItem("userLog"));
+console.log("Usuário logado:", user);
 
 const newCar = {
     titulo: document.getElementById('titulo').value,
     imagem: document.getElementById('imagem').value,
     preco: Number(document.getElementById('preco').value),
     descricao: document.getElementById('descricao').value,
-    idDono: JSON.parse(localStorage.getItem("userLog")).id
+    idDono: user.id
 };
 console.log(newCar);
 
 fetch('http://localhost:3000/users')
     .then(response => response.json())
-    .then(users => {
-    console.log("usuários", users)
-fetch('http://localhost:3000/cars')
-    
-    .then(response => response.json())
     .then(data => {
+        users = data;
+        console.log("usuários", users);
+    });
+        fetch('http://localhost:3000/cars')
+            .then(response => response.json())
+            .then(data => {
         cars = data;
         console.log("carros", data)
+
             const carList = document.getElementById('cars');
                 carList.innerHTML = data.map(car => {
-                    
+
+            const user = JSON.parse(localStorage.getItem("userLog"));        
             const vendedor = users.find(user => user.idUser === car.idDono);
+            
+            if (isOwner(car, user)) {
                 return `
                 <div>
                     <p>Titulo: ${car.titulo}</p>
@@ -37,9 +46,18 @@ fetch('http://localhost:3000/cars')
                         <button onclick='deleteCar(${car.id})'>Excluir carro</button>
                         <button onclick='editCar(${car.id})'>Editar carro</button>
                     </div>`;
-                }).join('');
-            });
-    })
+            } else {
+               return `
+                <div>
+                    <p>Titulo: ${car.titulo}</p>
+                    <p>Imagem: ${car.imagem}</p>
+                    <p>Descrição: ${car.descricao}</p>
+                    <p>Preço: R$ ${car.preco.toFixed(2)}</p>
+                    <p>Dono: <a href="profile.html?id=${vendedor.idUser}">${vendedor.nome}</a></p>
+                </div>`;}
+            }).join('');
+        })
+
 
     .catch(error => console.error('Erro ao buscar carros:', error));
 
@@ -53,21 +71,21 @@ fetch('http://localhost:3000/cars')
         }
     });
 
+
     function submitCar() {
         const titulo = document.getElementById('titulo').value;
         const imagem = document.getElementById('imagem').value;
         const preco = document.getElementById('preco').value;
         const descricao = document.getElementById('descricao').value;
 
-        const usuario = JSON.parse(localStorage.getItem("userLog"));
-        console.log(usuario);
+        console.log(user);
 
         const newCar = {
             titulo,
             imagem,
             preco: Number(preco),
             descricao,
-            idDono: usuario.id
+            idDono: user.id
         };
         console.log(newCar);
         
@@ -174,15 +192,12 @@ fetch('http://localhost:3000/cars')
     }
 
 // AREA DO USUARIO
-    
-    const usuario = JSON.parse(localStorage.getItem("userLog"));
 
-    if (usuario) {
-        console.log("Usuário logado:", usuario);
-        document.getElementById("userInfo").innerHTML = `Bem-vindo ${usuario.nome}`;
+    if (user) {
+        document.getElementById("userInfo").innerHTML = `Bem-vindo ${user.nome}`;
     };
 
-    if (usuario) {
+    if (user) {
         document.getElementById("login").innerHTML = `<a href="./login.html">Sair</a>`;
         document.getElementById("register").style.display = "none";
     };
@@ -192,6 +207,6 @@ fetch('http://localhost:3000/cars')
         window.location.href = "./login.html";
     };
 
-    if(!usuario){ document.getElementById("btnSubmit").disabled = true;
+    if(!user){ document.getElementById("btnSubmit").disabled = true;
         document.getElementById("btnSubmit"). textContent = "Você precisa estar logado para anunciar";
         }

@@ -17,6 +17,8 @@ const newCar = {
 };
 console.log(newCar);
 
+//renderiza os carros cadastrados
+
 fetch('http://localhost:3000/users')
     .then(response => response.json())
     .then(data => {
@@ -151,11 +153,13 @@ fetch('http://localhost:3000/users')
         const imagem = document.getElementById("imagem").value;
         const preco = document.getElementById("preco").value;
         const descricao = document.getElementById("descricao").value;
+        const user = JSON.parse(localStorage.getItem("userLog"));
         const updatedCar = {
             titulo,
             imagem,
             preco: Number(preco),
-            descricao
+            descricao,
+            idDono: user.id
         };
 
     fetch(`http://localhost:3000/cars/${editingCarId}`,{
@@ -177,8 +181,15 @@ fetch('http://localhost:3000/users')
     function deleteCar(id) {
         console.log("Excluindo carro ", id);
 
+        const user = JSON.parse(localStorage.getItem("userLog"));
+        const userId = user.id;
+
         fetch(`http://localhost:3000/cars/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ idDono: userId })
         })
         .then(response => {
             if (response.ok) {

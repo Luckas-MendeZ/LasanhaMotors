@@ -75,6 +75,12 @@ app.delete("/cars/:id", (req, res) => {
         }
         cars.splice(cars.findIndex(c => c.id === id), 1);
 
+        const carOwnerId = updatedCars[0].idDono;
+
+        if (carOwnerId !== req.body.idDono) {
+            return res.status(403).json({erro: "Você não tem permissão para excluir este carro"});
+        }
+
         fs.writeFile(filePath, JSON.stringify(cars, null, 2), (err) => {
             if (err) {
                 return res.status(500).json({erro: "Erro ao escrever o arquivo"});
@@ -96,6 +102,12 @@ app.put("/cars/:id", (req, res) => {
 
         if (carIndex === -1) {
             return res.status(404).json({erro: "Carro não encontrado"});
+        }
+
+        const carOwnerId = cars[carIndex].idDono;
+
+        if (carOwnerId !== req.body.idDono) {
+            return res.status(403).json({erro: "Você não tem permissão para atualizar este carro"});
         }
 
         const updatedCar = {...cars[carIndex], ...req.body};
